@@ -1,19 +1,16 @@
 <?php 
 // mysqlの接続情報を定数として宣言
-define("SERVER", "localhost");
-define("USERNAME", "");
-define("PASSWORD", "");
-define("DB_NAME", "");
+define("SERVER", "PC141S06");
+define("USERNAME", "saga");
+define("PASSWORD", "saga");
+define("DB_NAME", "kumamondb");
 
-$link = mysql_connect(SERVER, USERNAME, PASSWORD);
+$con = mysqli_connect(SERVER, USERNAME, PASSWORD, DB_NAME);
 
-if (!$link) {
+if (!$con) {
     die('接続失敗です。\n\n'.mysql_error());
 }
 
-$db_selected = mysql_select_db(DB_NAME, $link);
-if (!$db_selected){
-	die('データベース選択失敗です。'.mysql_error());
-}
+mysqli_set_charset($con, "utf8");
 
 ?>
